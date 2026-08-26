@@ -1,0 +1,52 @@
+﻿using System.Reflection;
+
+namespace lagerApp;
+
+public class OrderReader: IReader
+{
+    public Order? ReadLagerCsv(string filePath)
+    {
+        List<string[]> orderLines = IReader.ReadCsvLines(filePath);
+    
+        // Split the file using simple syntax
+
+        string[]? orderHeader = orderLines.FirstOrDefault();
+        
+        if (orderHeader is not null)
+        {
+            List<OrderLine> orderItems = orderLines.Skip(1).Select(o => new
+                {
+                    Item = ReturnItemAsAction(o[0]),
+                    Quantity = GetQuantityAsAction(o[1]),
+                    Shelf = o[2]
+                })
+                .Where(x => x.Item is not null && x.Quantity is not null)
+                .Select(o => new OrderLine(o.Item, o.Shelf, o.Quantity)) 
+                .ToList();
+            return new Order(orderItems);
+        }
+
+        return null;
+    }
+
+    public ItemType? ReturnItemAsAction(string lineValue)
+    {
+        if (Enum.TryParse(lineValue, true, out ItemType result))
+        {
+            return result;
+        }
+
+        return null;
+    }
+
+    public int? GetQuantityAsAction(string lineValue)
+    {
+        int result;
+        if (Int32.TryParse(lineValue, out result))
+        {
+            return result;
+        }
+
+        return null;
+    }
+}

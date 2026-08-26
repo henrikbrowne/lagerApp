@@ -1,6 +1,3 @@
 namespace lagerApp;
 
-public class Order
-{
-    public List<OrderLine> lines { get; set; } = [];
-}
+public record Order(List<OrderLine> lines);
