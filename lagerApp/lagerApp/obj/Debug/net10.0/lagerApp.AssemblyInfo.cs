@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lagerApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01d63fea10a90517c990c175dbb48a3cf0f70673")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82384582b2395378820b2eb3a44bb70622ea7e49")]
 [assembly: System.Reflection.AssemblyProductAttribute("lagerApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lagerApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
