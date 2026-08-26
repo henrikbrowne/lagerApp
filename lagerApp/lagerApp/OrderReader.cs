@@ -4,8 +4,9 @@ namespace lagerApp;
 
 public class OrderReader: IReader
 {
-    public Order? ReadLagerCsv(string filePath)
+    public Order? ReadOrderCsv(string filePath)
     {
+        // Use the IncomingOrder.csv
         List<string[]> orderLines = IReader.ReadCsvLines(filePath);
     
         // Split the file using simple syntax
@@ -18,10 +19,9 @@ public class OrderReader: IReader
                 {
                     Item = ReturnItemAsAction(o[0]),
                     Quantity = GetQuantityAsAction(o[1]),
-                    Shelf = o[2]
                 })
                 .Where(x => x.Item is not null && x.Quantity is not null)
-                .Select(o => new OrderLine(o.Item, o.Shelf, o.Quantity)) 
+                .Select(o => new OrderLine(o.Item,o.Quantity)) 
                 .ToList();
             return new Order(orderItems);
         }
