@@ -1,4 +1,4 @@
-﻿using lagerApp;
+﻿namespace lagerApp;
 
 Inventory inventory = new();
 LagerUI lagerUI = new();
