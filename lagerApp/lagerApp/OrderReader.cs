@@ -17,8 +17,8 @@ public class OrderReader: IReader
         {
             List<OrderLine> orderItems = orderLines.Skip(1).Select(o => new
                 {
-                    Item = ReturnItemAsAction(o[0]),
-                    Quantity = GetQuantityAsAction(o[1]),
+                    Quantity = GetQuantityAsAction(o[0]),
+                    Item = ReturnItemAsAction(o[1])
                 })
                 .Where(x => x.Item is not null && x.Quantity is not null)
                 .Select(o => new OrderLine(o.Item,o.Quantity)) 

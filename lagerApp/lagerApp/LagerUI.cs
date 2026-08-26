@@ -4,6 +4,9 @@ public class LagerUI(Warehouse warehouse, OrderReader orderReader)
 {
     private readonly MenuOptions menuOptions = new();
     public Warehouse Warehouse = warehouse;
+    string baseDir = Path.GetFullPath(
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../IncomingOrder.csv")
+    );
 
     public void Run()
     {
@@ -60,7 +63,17 @@ public class LagerUI(Warehouse warehouse, OrderReader orderReader)
 
     private void ProcessOrderFile()
     {
-        orderReader
+        Inventory inventory = Warehouse.Inventory;
+        Order? newOrder = orderReader.ReadOrderCsv(baseDir);
+        if (newOrder != null)
+        {
+            foreach (var orderLine in newOrder.lines)
+            {
+                inventory.ProcessOrderLine(orderLine);
+            }
+        }
+
+        inventory.RefillFromSupplier();
     }
 
     private void Exit()
