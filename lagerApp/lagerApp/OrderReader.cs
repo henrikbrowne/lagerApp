@@ -4,7 +4,7 @@ namespace lagerApp;
 
 public class OrderReader: IReader
 {
-    public Order? ReadCsv(string filePath)
+    public Order? ReadLagerCsv(string filePath)
     {
         List<string[]> orderLines = IReader.ReadCsvLines(filePath);
     
