@@ -1,7 +1,8 @@
 namespace lagerApp;
 
-public class OrderLine
+public record OrderLine
 {
     ItemType itemType;
+    private string shelf;
     int quantity;
 }
