@@ -4,7 +4,14 @@ public class Warehouse
 {
     public Inventory Inventory { get; set; } = new();
     private List<Order> Orders { get; set; } = [];
-    
+
+    public void InsertItems(List<Item> newItems)
+    {
+        foreach (Item itemObj in newItems)
+        {
+            Inventory.Items[(ItemType) itemObj.itemType].Add(itemObj);
+        }
+    }
     
     public void ShowInventory()
     {

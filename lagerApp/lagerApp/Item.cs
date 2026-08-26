@@ -3,5 +3,11 @@ namespace lagerApp;
 public class Item
 {
     private string shelf;
-    private ItemType itemType;
+    public ItemType? itemType;
+
+    public Item(string shelf, ItemType? itemType)
+    {
+        this.shelf = shelf;
+        this.itemType = itemType;
+    }
 }
