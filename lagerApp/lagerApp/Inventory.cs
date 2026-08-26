@@ -48,7 +48,25 @@ public class Inventory
     {
         foreach (var key in Items.Keys)
         {
-            
+            int weHave = Items[key].Count;
+            int weShouldHave = GetMinimumQuantity(key);
+            int surplus = weHave - weShouldHave;
+            if (surplus < 0)
+            {
+                PlaceSupplierOrder(-surplus, key);
+            }
+        }
+    }
+
+    private void PlaceSupplierOrder(int quantity, ItemType itemType)
+    {
+        if (SupplierOrders.ContainsKey(itemType))
+        {
+            SupplierOrders[itemType] += quantity;
+        }
+        else
+        {
+            SupplierOrders.Add(itemType, quantity);
         }
     }
 }
