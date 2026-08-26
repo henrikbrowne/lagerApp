@@ -18,7 +18,7 @@ public class Warehouse
         Console.WriteLine("Lagerbeholdning:");
         foreach (var key in Inventory.Items.Keys)
         {
-            Console.WriteLine($"{key}: {Inventory.Items[key]}");
+            Console.WriteLine($"{key}: {Inventory.Items[key].Count}");
         }
     }
 
@@ -34,6 +34,11 @@ public class Warehouse
 
     public void ShowSupplierReport()
     {
-        Console.WriteLine("Showing supplier report...");
+        Console.WriteLine("Leverandørrapport:");
+        foreach (var key in Inventory.SupplierOrders.Keys)
+        {
+            Console.WriteLine($"{key}: {Inventory.SupplierOrders[key]}");
+        }
     }
+    
 }

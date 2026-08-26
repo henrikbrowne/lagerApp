@@ -1,13 +1,7 @@
 namespace lagerApp;
 
-public class Item
+public class Item(string shelf, ItemType? itemType)
 {
-    private string shelf;
-    public ItemType? itemType;
-
-    public Item(string shelf, ItemType? itemType)
-    {
-        this.shelf = shelf;
-        this.itemType = itemType;
-    }
+    private string shelf = shelf;
+    private ItemType? itemType = itemType;
 }

@@ -35,6 +35,7 @@ public class LagerUI(Warehouse warehouse, OrderReader orderReader)
         ];
 
         GetInput(options, "Velg rapport");
+        ShowMainMenu();
     }
 
     private void GetInput(List<MenuOption> options, string? prompt = null)
@@ -74,6 +75,7 @@ public class LagerUI(Warehouse warehouse, OrderReader orderReader)
         }
 
         inventory.RefillFromSupplier();
+        ShowMainMenu();
     }
 
     private void Exit()
