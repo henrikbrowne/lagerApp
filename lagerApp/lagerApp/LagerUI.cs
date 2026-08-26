@@ -1,6 +1,6 @@
 namespace lagerApp;
 
-public class LagerUI(Warehouse warehouse)
+public class LagerUI(Warehouse warehouse, OrderReader orderReader)
 {
     private readonly MenuOptions menuOptions = new();
     public Warehouse Warehouse = warehouse;
@@ -60,7 +60,7 @@ public class LagerUI(Warehouse warehouse)
 
     private void ProcessOrderFile()
     {
-        Console.WriteLine("Processing order file...");
+        orderReader
     }
 
     private void Exit()

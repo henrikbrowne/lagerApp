@@ -1,5 +1,12 @@
 ﻿namespace lagerApp;
 
-Warehouse warehouse = new();
-LagerUI LagerUI = new(warehouse);
-LagerUI.Run();
+class Program
+{
+    static void Main()
+    {
+        Warehouse warehouse = new();
+        OrderReader orderReader = new();
+        LagerUI lagerUi = new(warehouse, orderReader);
+        lagerUi.Run();
+    }
+}
