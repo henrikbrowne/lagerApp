@@ -2,5 +2,5 @@ namespace lagerApp;
 
 public class Order
 {
-    private List<OrderLine> lines;
+    public List<OrderLine> lines { get; set; } = [];
 }

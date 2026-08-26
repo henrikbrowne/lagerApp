@@ -2,6 +2,7 @@ namespace lagerApp;
 
 public class OrderLine
 {
-    ItemType itemType;
-    int quantity;
+    ItemType? itemType;
+    private string shelf;
+    int? quantity;
 }

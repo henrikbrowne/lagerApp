@@ -1,5 +1,5 @@
 ﻿using lagerApp;
 
-Inventory inventory = new();
-LagerUI lagerUI = new();
-lagerUI.Run();
+Warehouse warehouse = new();
+LagerUI LagerUI = new(warehouse);
+LagerUI.Run();

@@ -1,8 +1,9 @@
 namespace lagerApp;
 
-public class LagerUI
+public class LagerUI(Warehouse warehouse)
 {
     private readonly MenuOptions menuOptions = new();
+    public Warehouse Warehouse = warehouse;
 
     public void Run()
     {
@@ -25,9 +26,9 @@ public class LagerUI
     {
         List<MenuOption> options =
         [
-            new("Lagerbeholdning", 1, ShowInventory),
-            new("Ordrestatus", 2, ShowOrderStatus),
-            new("Leverandørrapport", 3, ShowSupplierReport)
+            new("Lagerbeholdning", 1, warehouse.ShowInventory),
+            new("Ordrestatus", 2, warehouse.ShowOrderStatus),
+            new("Leverandørrapport", 3, warehouse.ShowSupplierReport)
         ];
 
         GetInput(options, "Velg rapport");
@@ -60,21 +61,6 @@ public class LagerUI
     private void ProcessOrderFile()
     {
         Console.WriteLine("Processing order file...");
-    }
-
-    private void ShowInventory()
-    {
-        Console.WriteLine("Showing inventory...");
-    }
-
-    private void ShowOrderStatus()
-    {
-        Console.WriteLine("Showing order status...");
-    }
-
-    private void ShowSupplierReport()
-    {
-        Console.WriteLine("Showing supplier report...");
     }
 
     private void Exit()

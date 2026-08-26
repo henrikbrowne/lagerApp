@@ -2,5 +2,5 @@ namespace lagerApp;
 
 public class Inventory
 {
-    public Dictionary<ItemType, int> items { get; set; }
+    public Dictionary<ItemType, List<Item>> Items { get; } = new();
 }
